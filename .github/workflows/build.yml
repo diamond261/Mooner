@@ -35,6 +35,9 @@ jobs:
           ref: master
           submodules: recursive
           path: theos
+      - name: Pin Orion SwiftPM deps
+        run: |
+          perl -0pi -e 's/\.package\(url: "https:\/\/github.com\/apple\/swift-argument-parser", from: "1.0.0"\)/.package(url: "https:\/\/github.com\/apple\/swift-argument-parser", exact: "1.6.0")/g' "${{ github.workspace }}/theos/vendor/orion/Package.swift" "${{ github.workspace }}/theos/vendor/orion/Package@swift-5.6.swift"
       - name: Checkout theos/sdks
         uses: actions/checkout@main
         with:
