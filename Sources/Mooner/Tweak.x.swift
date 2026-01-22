@@ -14,7 +14,7 @@ var userDateFormat: String?
 var lockscreenScale: Double?
 var userTimeColorHex: String?
 
-// variable that contains the visibility of the lockscreen
+// variable that contains the visibility of the lockscreen 
 var isLSMainView = true
 
 // Hooks & Stuff
