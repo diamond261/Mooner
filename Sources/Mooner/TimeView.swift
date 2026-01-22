@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 import MoonerC
 
 class BatteryLevelDetector: ObservableObject {
@@ -36,6 +37,32 @@ func formatDate(pointInTime: Date) -> (LongDate: String, Time: String, AMPM: Str
     return (LongDate, Time, AMPM)
 }
 
+func colorFromHex(_ hex: String) -> Color {
+    let cleaned = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+    var value: UInt64 = 0
+    guard Scanner(string: cleaned).scanHexInt64(&value) else {
+        return Color.white
+    }
+
+    let r, g, b, a: UInt64
+    switch cleaned.count {
+    case 6:
+        (r, g, b, a) = (value >> 16 & 0xFF, value >> 8 & 0xFF, value & 0xFF, 0xFF)
+    case 8:
+        (r, g, b, a) = (value >> 24 & 0xFF, value >> 16 & 0xFF, value >> 8 & 0xFF, value & 0xFF)
+    default:
+        return Color.white
+    }
+
+    return Color(
+        .sRGB,
+        red: Double(r) / 255.0,
+        green: Double(g) / 255.0,
+        blue: Double(b) / 255.0,
+        opacity: Double(a) / 255.0
+    )
+}
+
 struct RootTimelineView: View {
     var body: some View {
         VStack {
@@ -66,6 +93,8 @@ struct TimeView: View {
                     return .trailing
                 }
             }()
+            let timeScale = CGFloat(lockscreenScale ?? 1.0)
+            let timeColor = colorFromHex(userTimeColorHex ?? "#FFFFFFFF")
 
             HStack {
                 if lockscreenAlignment == 2 {
@@ -95,7 +124,7 @@ struct TimeView: View {
                         if lockscreenAlignment != 2 {
                             Text("\(Time)")
                                 .font(.system(size: 60, weight: .bold, design: .rounded))
-                                .foregroundColor(.white)
+                                .foregroundColor(timeColor)
                         }
                         Text("\(AMPM)")
                             .font(.system(size: 35, weight: .semibold, design: .rounded))
@@ -105,7 +134,7 @@ struct TimeView: View {
                         if lockscreenAlignment == 2 {
                             Text("\(Time)")
                                 .font(.system(size: 60, weight: .bold, design: .rounded))
-                                .foregroundColor(.white)
+                                .foregroundColor(timeColor)
                         }
                         
                     }
@@ -118,6 +147,7 @@ struct TimeView: View {
                 }
                 .padding(.top, 30)
                 .padding(.horizontal, 15)
+                .scaleEffect(timeScale)
                 if lockscreenAlignment == 0 {
                     Spacer()
                 }

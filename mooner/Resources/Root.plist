@@ -78,6 +78,42 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Appearance</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>key</key>
+			<string>lockscreenScale</string>
+			<key>label</key>
+			<string>Scale</string>
+			<key>min</key>
+			<real>1</real>
+			<key>max</key>
+			<real>20</real>
+			<key>default</key>
+			<real>1</real>
+			<key>showValue</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>key</key>
+			<string>timeTextColor</string>
+			<key>label</key>
+			<string>Time Color</string>
+			<key>detail</key>
+			<string>mooner.ColorPickerController</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>key</key>
 			<string>isDayNightIconEnabled</string>

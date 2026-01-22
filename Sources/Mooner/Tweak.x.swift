@@ -11,6 +11,8 @@ var isHideProudLockEnabled: Bool?
 var isHidePageDotsEnabled: Bool?
 var userTimeFormat: String?
 var userDateFormat: String?
+var lockscreenScale: Double?
+var userTimeColorHex: String?
 
 // variable that contains the visibility of the lockscreen
 var isLSMainView = true
@@ -106,6 +108,10 @@ func preferencesChanged() {
         isHidePageDotsEnabled = (prefs?.object(forKey: "isHidePageDotsEnabled") as? Bool) ?? false
         userTimeFormat = (prefs?.object(forKey: "userTimeFormat") as? String) ?? "hh:mm"
         userDateFormat = (prefs?.object(forKey: "userDateFormat") as? String) ?? "MMMM d, EEEE"
+        let storedScale = (prefs?.object(forKey: "lockscreenScale") as? Double)
+            ?? Double(prefs?.float(forKey: "lockscreenScale") ?? 0)
+        lockscreenScale = storedScale == 0 ? 1.0 : storedScale
+        userTimeColorHex = (prefs?.object(forKey: "timeTextColor") as? String) ?? "#FFFFFFFF"
 }
 
 struct Mooner: Tweak {
