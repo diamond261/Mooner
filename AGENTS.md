@@ -18,6 +18,14 @@
 - Theos must be installed and `THEOS` must be set.
 - Run `make spm` once to generate `.theos/spm_config` for SwiftPM support.
 - Device-side install commands require a connected device or SSH target.
+- Windows builds require a macOS environment (VM or CI); Swift/SDK tooling is macOS-only.
+
+### Building on Windows (WSL + macOS VM)
+- Use WSL for repo management (git, editing), but build inside a macOS VM.
+- Share the repo folder with the VM (e.g., via SMB or a synced folder).
+- Install Xcode, Command Line Tools, and Theos in the macOS VM.
+- Run `make spm` once, then `make`/`make package` inside the VM.
+- Copy the generated `.deb` from `packages/` back to Windows if needed.
 
 ### Build tweak + preference bundle (root)
 - `make` builds the tweak and the preference bundle.
