@@ -2,7 +2,6 @@ import Preferences
 import UIKit
 import Foundation
 
-@objc(BatteryColorController)
 final class BatteryColorController: PSViewController, UIColorPickerViewControllerDelegate {
     private let defaults = UserDefaults(suiteName: "com.now.moonerprefs")
     private let colorKey = "batteryTextColor"
@@ -11,6 +10,10 @@ final class BatteryColorController: PSViewController, UIColorPickerViewControlle
 
     override init(forContentSize contentSize: CGSize) {
         super.init(forContentSize: contentSize)
+    }
+
+    override init(specifier: PSSpecifier!) {
+        super.init(specifier: specifier)
     }
 
     required init?(coder: NSCoder) {

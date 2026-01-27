@@ -108,7 +108,7 @@
 			<key>label</key>
 			<string>Time Color</string>
 			<key>detail</key>
-			<string>TimeColorController</string>
+			<string>mooner.TimeColorController</string>
 			<key>defaults</key>
 			<string>com.now.moonerprefs</string>
 		</dict>
@@ -120,7 +120,7 @@
 			<key>label</key>
 			<string>Date Color</string>
 			<key>detail</key>
-			<string>DateColorController</string>
+			<string>mooner.DateColorController</string>
 			<key>defaults</key>
 			<string>com.now.moonerprefs</string>
 		</dict>
@@ -132,7 +132,7 @@
 			<key>label</key>
 			<string>Battery Color</string>
 			<key>detail</key>
-			<string>BatteryColorController</string>
+			<string>mooner.BatteryColorController</string>
 			<key>defaults</key>
 			<string>com.now.moonerprefs</string>
 		</dict>

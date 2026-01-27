@@ -2,7 +2,6 @@ import Preferences
 import UIKit
 import Foundation
 
-@objc(DateColorController)
 final class DateColorController: PSViewController, UIColorPickerViewControllerDelegate {
     private let defaults = UserDefaults(suiteName: "com.now.moonerprefs")
     private let colorKey = "dateTextColor"
@@ -11,6 +10,10 @@ final class DateColorController: PSViewController, UIColorPickerViewControllerDe
 
     override init(forContentSize contentSize: CGSize) {
         super.init(forContentSize: contentSize)
+    }
+
+    override init(specifier: PSSpecifier!) {
+        super.init(specifier: specifier)
     }
 
     required init?(coder: NSCoder) {
