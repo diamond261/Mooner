@@ -55,6 +55,8 @@
 - No automated tests are present.
 - There is no single-test runner configured.
 - If you add tests later, document the exact command here.
+- Suggested single-test command (after `make spm`):
+  `swift test --filter <TargetName>/<TestCase>/<testMethod>`.
 
 ### Packaging notes
 - `control` defines the package metadata used by Theos.

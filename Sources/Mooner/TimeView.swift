@@ -93,6 +93,15 @@ struct TimeView: View {
                     return .trailing
                 }
             }()
+            let scaleAnchor: UnitPoint = {
+                if lockscreenAlignment == 0 {
+                    return .topLeading
+                } else if lockscreenAlignment == 1 {
+                    return .top
+                } else {
+                    return .topTrailing
+                }
+            }()
             let timeScale = CGFloat(lockscreenScale ?? 1.0)
             let timeColor = colorFromHex(userTimeColorHex ?? "#FFFFFFFF")
 
@@ -147,7 +156,7 @@ struct TimeView: View {
                 }
                 .padding(.top, 30)
                 .padding(.horizontal, 15)
-                .scaleEffect(timeScale)
+                .scaleEffect(timeScale, anchor: scaleAnchor)
                 if lockscreenAlignment == 0 {
                     Spacer()
                 }
