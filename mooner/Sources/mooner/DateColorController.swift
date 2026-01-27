@@ -12,9 +12,6 @@ final class DateColorController: PSViewController, UIColorPickerViewControllerDe
         super.init(forContentSize: contentSize)
     }
 
-    override init(specifier: PSSpecifier!) {
-        super.init(specifier: specifier)
-    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
