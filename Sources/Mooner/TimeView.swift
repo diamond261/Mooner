@@ -103,9 +103,19 @@ struct TimeView: View {
                 }
             }()
             let timeScale = CGFloat(lockscreenScale ?? 1.0)
-            let timeColor = colorFromHex(userTimeColorHex ?? "#FFFFFFFF")
-            let dateColor = colorFromHex(userDateColorHex ?? "#FFFFFFFF")
-            let batteryColor = colorFromHex(userBatteryColorHex ?? "#D9D9D9FF")
+            let prefs = UserDefaults(suiteName: "com.now.moonerprefs")
+            let timeColorHex = prefs?.string(forKey: "timeTextColor")
+                ?? userTimeColorHex
+                ?? "#FFFFFFFF"
+            let dateColorHex = prefs?.string(forKey: "dateTextColor")
+                ?? userDateColorHex
+                ?? timeColorHex
+            let batteryColorHex = prefs?.string(forKey: "batteryTextColor")
+                ?? userBatteryColorHex
+                ?? "#D9D9D9FF"
+            let timeColor = colorFromHex(timeColorHex)
+            let dateColor = colorFromHex(dateColorHex)
+            let batteryColor = colorFromHex(batteryColorHex)
 
             HStack {
                 if lockscreenAlignment == 2 {
