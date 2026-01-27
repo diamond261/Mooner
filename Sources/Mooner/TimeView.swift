@@ -104,6 +104,8 @@ struct TimeView: View {
             }()
             let timeScale = CGFloat(lockscreenScale ?? 1.0)
             let timeColor = colorFromHex(userTimeColorHex ?? "#FFFFFFFF")
+            let dateColor = colorFromHex(userDateColorHex ?? "#FFFFFFFF")
+            let batteryColor = colorFromHex(userBatteryColorHex ?? "#D9D9D9FF")
 
             HStack {
                 if lockscreenAlignment == 2 {
@@ -114,19 +116,19 @@ struct TimeView: View {
                         Text("\(LongDate)")
                             .font(.system(size: 25, weight: .semibold, design: .rounded))
                             .opacity(secondaryOpacity)
-                            .foregroundColor(secondaryColor)
+                            .foregroundColor(dateColor)
                             .foregroundStyle(secondaryBlur)
                     } else if lockscreenAlignment != 2 {
                         Text("\(LongDate) \(Image(systemName: "sun.max.fill"))")
                             .font(.system(size: 25, weight: .semibold, design: .rounded))
                             .opacity(secondaryOpacity)
-                            .foregroundColor(secondaryColor)
+                            .foregroundColor(dateColor)
                             .foregroundStyle(secondaryBlur)
                     } else {
                         Text("\(Image(systemName: "sun.max.fill")) \(LongDate)")
                         .font(.system(size: 25, weight: .semibold, design: .rounded))
                         .opacity(secondaryOpacity)
-                        .foregroundColor(secondaryColor)
+                        .foregroundColor(dateColor)
                         .foregroundStyle(secondaryBlur)
                     }
                     HStack(alignment: .lastTextBaseline) {
@@ -150,7 +152,7 @@ struct TimeView: View {
                     Text("Battery Percentage: \(batteryLevelDetector.batteryLevel)%")
                         .font(.system(size: 25, weight: .semibold, design: .rounded))
                         .opacity(secondaryOpacity)
-                        .foregroundColor(secondaryColor)
+                        .foregroundColor(batteryColor)
                         .foregroundStyle(secondaryBlur)
                     Spacer()
                 }

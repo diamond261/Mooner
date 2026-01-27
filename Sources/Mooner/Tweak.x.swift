@@ -13,6 +13,8 @@ var userTimeFormat: String?
 var userDateFormat: String?
 var lockscreenScale: Double?
 var userTimeColorHex: String?
+var userDateColorHex: String?
+var userBatteryColorHex: String?
 
 // variable that contains the visibility of the lockscreen 
 var isLSMainView = true
@@ -111,7 +113,10 @@ func preferencesChanged() {
         let storedScale = (prefs?.object(forKey: "lockscreenScale") as? Double)
             ?? Double(prefs?.float(forKey: "lockscreenScale") ?? 0)
         lockscreenScale = storedScale == 0 ? 1.0 : storedScale
-        userTimeColorHex = (prefs?.object(forKey: "timeTextColor") as? String) ?? "#FFFFFFFF"
+        let legacyTimeColor = (prefs?.object(forKey: "timeTextColor") as? String) ?? "#FFFFFFFF"
+        userTimeColorHex = legacyTimeColor
+        userDateColorHex = (prefs?.object(forKey: "dateTextColor") as? String) ?? legacyTimeColor
+        userBatteryColorHex = (prefs?.object(forKey: "batteryTextColor") as? String) ?? "#D9D9D9FF"
 }
 
 struct Mooner: Tweak {

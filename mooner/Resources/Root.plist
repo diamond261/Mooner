@@ -108,7 +108,31 @@
 			<key>label</key>
 			<string>Time Color</string>
 			<key>detail</key>
-			<string>mooner.ColorPickerController</string>
+			<string>mooner.TimeColorController</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>key</key>
+			<string>dateTextColor</string>
+			<key>label</key>
+			<string>Date Color</string>
+			<key>detail</key>
+			<string>mooner.DateColorController</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>key</key>
+			<string>batteryTextColor</string>
+			<key>label</key>
+			<string>Battery Color</string>
+			<key>detail</key>
+			<string>mooner.BatteryColorController</string>
 			<key>defaults</key>
 			<string>com.now.moonerprefs</string>
 		</dict>
