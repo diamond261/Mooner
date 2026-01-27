@@ -63,6 +63,22 @@ func colorFromHex(_ hex: String) -> Color {
     )
 }
 
+private func preferenceString(forKey key: String) -> String? {
+    let suite = "com.now.moonerprefs" as CFString
+    CFPreferencesAppSynchronize(suite)
+    if let value = CFPreferencesCopyAppValue(key as CFString, suite) as? String {
+        return value
+    }
+
+    let plistPath = "/var/mobile/Library/Preferences/com.now.moonerprefs.plist"
+    if let dict = NSDictionary(contentsOfFile: plistPath),
+       let value = dict[key] as? String {
+        return value
+    }
+
+    return nil
+}
+
 struct RootTimelineView: View {
     var body: some View {
         VStack {
@@ -103,14 +119,13 @@ struct TimeView: View {
                 }
             }()
             let timeScale = CGFloat(lockscreenScale ?? 1.0)
-            let prefs = UserDefaults(suiteName: "com.now.moonerprefs")
-            let timeColorHex = prefs?.string(forKey: "timeTextColor")
+            let timeColorHex = preferenceString(forKey: "timeTextColor")
                 ?? userTimeColorHex
                 ?? "#FFFFFFFF"
-            let dateColorHex = prefs?.string(forKey: "dateTextColor")
+            let dateColorHex = preferenceString(forKey: "dateTextColor")
                 ?? userDateColorHex
                 ?? timeColorHex
-            let batteryColorHex = prefs?.string(forKey: "batteryTextColor")
+            let batteryColorHex = preferenceString(forKey: "batteryTextColor")
                 ?? userBatteryColorHex
                 ?? "#D9D9D9FF"
             let timeColor = colorFromHex(timeColorHex)
