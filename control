@@ -1,10 +1,10 @@
 Package: com.now.mooner
 Name: Mooner
-Version: 1.0.2
+Version: 1.1.2
 Architecture: iphoneos-arm
 Description: A free, simple, and modern iOS 15-16 LS customizer!
-Maintainer: NoW
-Author: NoW
+Maintainer: NoW , diamond261
+Author: NoW ,diamond261
 Section: Tweaks
 Depends: ${ORION}, firmware (>= 12.2), preferenceloader
 Icon: https://nowisdev.github.io/icons/Mooner.png

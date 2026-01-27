@@ -2,11 +2,20 @@ import Preferences
 import UIKit
 import Foundation
 
+@objc(ColorPickerController)
 final class ColorPickerController: PSViewController, UIColorPickerViewControllerDelegate {
     private let defaults = UserDefaults(suiteName: "com.now.moonerprefs")
     private let colorKey = "timeTextColor"
     private let fallbackColor = UIColor.white
     private let picker = UIColorPickerViewController()
+
+    override init(forContentSize contentSize: CGSize) {
+        super.init(forContentSize: contentSize)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +30,12 @@ final class ColorPickerController: PSViewController, UIColorPickerViewController
         addChild(picker)
         view.addSubview(picker.view)
         picker.view.translatesAutoresizingMaskIntoConstraints = false
+        let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            picker.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            picker.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            picker.view.topAnchor.constraint(equalTo: view.topAnchor),
-            picker.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            picker.view.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            picker.view.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+            picker.view.topAnchor.constraint(equalTo: guide.topAnchor),
+            picker.view.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
         ])
         picker.didMove(toParent: self)
     }
