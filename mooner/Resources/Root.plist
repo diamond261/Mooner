@@ -107,6 +107,8 @@
 			<string>Colors</string>
 			<key>detail</key>
 			<string>PSListController</string>
+			<key>bundle</key>
+			<string>mooner</string>
 			<key>plist</key>
 			<string>Colors</string>
 		</dict>
