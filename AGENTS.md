@@ -44,6 +44,7 @@
 
 ### SwiftPM (IDE/typecheck only)
 - `swift build` after `make spm` can be used for IDE type-checking.
+- `swift build --package-path mooner` targets the preference bundle package.
 - SwiftPM is not the authoritative build for Theos packaging.
 - SwiftPM uses Theos-generated flags, so keep `.theos/spm_config` fresh.
 
@@ -57,6 +58,8 @@
 - If you add tests later, document the exact command here.
 - Suggested single-test command (after `make spm`):
   `swift test --filter <TargetName>/<TestCase>/<testMethod>`.
+- If tests live in the preference bundle package:
+  `swift test --package-path mooner --filter <TargetName>/<TestCase>/<testMethod>`.
 
 ### Packaging notes
 - `control` defines the package metadata used by Theos.

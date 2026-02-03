@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import UIKit
 import MoonerC
 
 class BatteryLevelDetector: ObservableObject {
@@ -119,13 +120,20 @@ struct TimeView: View {
                 }
             }()
             let timeScale = CGFloat(lockscreenScale ?? 1.0)
-            let timeColorHex = preferenceString(forKey: "timeTextColor")
+            let isLandscape = UIScreen.main.bounds.width > UIScreen.main.bounds.height
+            let timeColorKey = isLandscape ? "landscapeTimeTextColor" : "portraitTimeTextColor"
+            let dateColorKey = isLandscape ? "landscapeDateTextColor" : "portraitDateTextColor"
+            let batteryColorKey = isLandscape ? "landscapeBatteryTextColor" : "portraitBatteryTextColor"
+            let timeColorHex = preferenceString(forKey: timeColorKey)
+                ?? (isLandscape ? landscapeTimeColorHex : portraitTimeColorHex)
                 ?? userTimeColorHex
                 ?? "#FFFFFFFF"
-            let dateColorHex = preferenceString(forKey: "dateTextColor")
+            let dateColorHex = preferenceString(forKey: dateColorKey)
+                ?? (isLandscape ? landscapeDateColorHex : portraitDateColorHex)
                 ?? userDateColorHex
                 ?? timeColorHex
-            let batteryColorHex = preferenceString(forKey: "batteryTextColor")
+            let batteryColorHex = preferenceString(forKey: batteryColorKey)
+                ?? (isLandscape ? landscapeBatteryColorHex : portraitBatteryColorHex)
                 ?? userBatteryColorHex
                 ?? "#D9D9D9FF"
             let timeColor = colorFromHex(timeColorHex)

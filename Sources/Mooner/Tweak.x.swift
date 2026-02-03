@@ -15,6 +15,12 @@ var lockscreenScale: Double?
 var userTimeColorHex: String?
 var userDateColorHex: String?
 var userBatteryColorHex: String?
+var portraitTimeColorHex: String?
+var portraitDateColorHex: String?
+var portraitBatteryColorHex: String?
+var landscapeTimeColorHex: String?
+var landscapeDateColorHex: String?
+var landscapeBatteryColorHex: String?
 
 // variable that contains the visibility of the lockscreen 
 var isLSMainView = true
@@ -117,6 +123,16 @@ func preferencesChanged() {
         userTimeColorHex = legacyTimeColor
         userDateColorHex = (prefs?.object(forKey: "dateTextColor") as? String) ?? legacyTimeColor
         userBatteryColorHex = (prefs?.object(forKey: "batteryTextColor") as? String) ?? "#D9D9D9FF"
+        portraitTimeColorHex = (prefs?.object(forKey: "portraitTimeTextColor") as? String) ?? legacyTimeColor
+        portraitDateColorHex = (prefs?.object(forKey: "portraitDateTextColor") as? String) ?? userDateColorHex ?? legacyTimeColor
+        portraitBatteryColorHex = (prefs?.object(forKey: "portraitBatteryTextColor") as? String)
+            ?? userBatteryColorHex
+            ?? "#D9D9D9FF"
+        landscapeTimeColorHex = (prefs?.object(forKey: "landscapeTimeTextColor") as? String) ?? legacyTimeColor
+        landscapeDateColorHex = (prefs?.object(forKey: "landscapeDateTextColor") as? String) ?? userDateColorHex ?? legacyTimeColor
+        landscapeBatteryColorHex = (prefs?.object(forKey: "landscapeBatteryTextColor") as? String)
+            ?? userBatteryColorHex
+            ?? "#D9D9D9FF"
 }
 
 struct Mooner: Tweak {

@@ -102,39 +102,13 @@
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSEditTextCell</string>
-			<key>key</key>
-			<string>timeTextColor</string>
+			<string>PSLinkCell</string>
 			<key>label</key>
-			<string>Time Color (Hex)</string>
-			<key>default</key>
-			<string>#FFFFFFFF</string>
-			<key>defaults</key>
-			<string>com.now.moonerprefs</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSEditTextCell</string>
-			<key>key</key>
-			<string>dateTextColor</string>
-			<key>label</key>
-			<string>Date Color (Hex)</string>
-			<key>default</key>
-			<string>#FFFFFFFF</string>
-			<key>defaults</key>
-			<string>com.now.moonerprefs</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSEditTextCell</string>
-			<key>key</key>
-			<string>batteryTextColor</string>
-			<key>label</key>
-			<string>Battery Color (Hex)</string>
-			<key>default</key>
-			<string>#D9D9D9FF</string>
-			<key>defaults</key>
-			<string>com.now.moonerprefs</string>
+			<string>Colors</string>
+			<key>detail</key>
+			<string>PSListController</string>
+			<key>plist</key>
+			<string>Colors</string>
 		</dict>
 		<dict>
 			<key>cell</key>

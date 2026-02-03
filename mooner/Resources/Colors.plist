@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Landscape</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>landscapeTimeTextColor</string>
+			<key>label</key>
+			<string>Time Color (Hex)</string>
+			<key>default</key>
+			<string>#FFFFFFFF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>landscapeDateTextColor</string>
+			<key>label</key>
+			<string>Date Color (Hex)</string>
+			<key>default</key>
+			<string>#FFFFFFFF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>landscapeBatteryTextColor</string>
+			<key>label</key>
+			<string>Battery Color (Hex)</string>
+			<key>default</key>
+			<string>#D9D9D9FF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Portrait</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>portraitTimeTextColor</string>
+			<key>label</key>
+			<string>Time Color (Hex)</string>
+			<key>default</key>
+			<string>#FFFFFFFF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>portraitDateTextColor</string>
+			<key>label</key>
+			<string>Date Color (Hex)</string>
+			<key>default</key>
+			<string>#FFFFFFFF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>key</key>
+			<string>portraitBatteryTextColor</string>
+			<key>label</key>
+			<string>Battery Color (Hex)</string>
+			<key>default</key>
+			<string>#D9D9D9FF</string>
+			<key>defaults</key>
+			<string>com.now.moonerprefs</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Colors</string>
+</dict>
+</plist>
